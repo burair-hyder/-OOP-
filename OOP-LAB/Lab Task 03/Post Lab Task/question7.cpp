@@ -6,7 +6,6 @@ Create a menu-driven program to:
 4. View all the items and their prices
 Create a receipt that the shopkeeper can share with their customers. The receipt can only be created after the shopkeeper inputs the items and their amounts bought by the customer.*/
 
-
 # include <iostream>
 # include <vector>
 # include <iomanip>
@@ -69,10 +68,13 @@ class StationaryShop{
 			
 			for (int  i=0;i<isize;i++){
 				
-				cout <<setw(20)<<left<<items[i]<<setw(15)<<left<<prices[i]<<endl;	
+				cout <<left<<setw(20)<<items[i]<<setw(15)<<left<<prices[i]<<endl;	
 			}
 		}
 			
+		int get_size(){
+			return isize;
+		}
 		void generate_recip(){
 			vector <int> itemsbrought;
 			vector <int> quantity;
@@ -80,7 +82,7 @@ class StationaryShop{
 			int distinct;
 			int quan;
 			int itemno;
-			int tempT;
+			float tempT;
 			fetch_items();
 			
 			cout <<"Enter total Number of Distinct Items bought!";
@@ -104,6 +106,7 @@ class StationaryShop{
 				cout <<left <<setw(20)<<itemsbrought[i]<<setw(20)<<items[itemsbrought[i]-1]<<setw(20)<<quantity[i]<<setw(20)<<total[i]<<endl;	
 			}
 			cout <<endl;
+			tempT=0;
 			for(int i=0;i<distinct;i++){
 				tempT= tempT + total[i];
 			}
@@ -137,7 +140,7 @@ int main(){
 	else{
 		switch(choice){
 			case 1: 
-			cout <"Enter Item Name:";
+			cout <<"Enter Item Name:";
 			cin >> name;
 			cout <<"Enter Price:";
 			cin >> price;
@@ -157,7 +160,13 @@ int main(){
 			case 4: shop.showlist();
 			break;
 			
-			case 5: shop.generate_recip();
+			case 5: 
+			if (shop.get_size()==0){
+				cout <<"No items in Shop!"<<endl;
+				break;
+				
+			}
+			shop.generate_recip();
 			break;
 			
 		}
