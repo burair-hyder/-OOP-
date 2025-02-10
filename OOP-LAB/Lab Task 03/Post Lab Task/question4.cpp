@@ -23,7 +23,7 @@ class angle{
 };
 int main(){
 	angle calangle;
-	calangle.get_location():
+	calangle.get_location();
 	calangle.set_angle();
 	calangle.get_location();
 }
