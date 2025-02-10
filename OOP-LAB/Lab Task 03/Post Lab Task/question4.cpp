@@ -6,24 +6,24 @@ class angle{
 	float minutes;
 	char direction;
 	public:
-	angle (){	//constructor(default)
+	angle (){
 		degree=0;
 		minutes=0.0;
 		direction='N';
 	}
-	void set_location(void){				//setting data
+	void set_angle(void){				
 		cout<<"enter angle values in degrees and minutes then direction:";
 		cin>>degree;
 		cin>>minutes;
 		cin>>direction;
 	}
-	void get_location(){							//getting data
+	void get_location(){							
 		cout<<"the angle value is: "<<degree<<"\xF8"<<minutes<<fixed<<setprecision(1)<<"' "<<direction<<endl;
 	}	
 };
 int main(){
-	angle analysis;
-	analysis.get_location();
-	analysis.set_location();
-	analysis.get_location();
+	angle calangle;
+	calangle.get_location():
+	calangle.set_angle();
+	calangle.get_location();
 }
