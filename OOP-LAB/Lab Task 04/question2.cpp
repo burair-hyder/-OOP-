@@ -3,6 +3,11 @@
 # include <iomanip>
 using namespace std;
 
+# include <iostream>
+# include <vector>
+# include <iomanip>
+using namespace std;
+
 class Book{
 		private:
 			int ID;
@@ -27,7 +32,7 @@ class Book{
 				ID = id;
 				title= titlep;
 				author = authorp;
-				availablilty=false;
+				availablilty=true;
 				
 				
 				
@@ -90,12 +95,7 @@ class Library{
 				else{
 				cout <<"Library already full";
 			}
-			cout <<"Enter avb:";
-			cin >> ab;
-			Book temp1(id,t,a,ab);
-			books[i] = temp1;
-			i++;
-					size++;
+			
 		
 		
 			
@@ -120,10 +120,13 @@ class Library{
 		void return_book(int id){
 			for (int i=0;i<20;i++){
 				if (books[i].get_id() ==id){
-				
+					if (books[i].check_avb() == false){
 					books[i].set_avb(true);
 					cout <<"book returned : "<<books[i].get_title()<<endl;
-					
+				}
+				else{
+					cout <<"Book is not registered"<<endl;
+				}
 				}
 			}
 		}
@@ -148,11 +151,20 @@ class Library{
 
 
 int main(){
+	int id;
 	Library L;
-	L.add_book(12);
-	L.add_book(15);
-	L.Borrow(12);
-	L.return_book(12);
+	cout <<"Enter Book ID TO add:";
+	cin >>id;
+	L.add_book(id);
+	cout <<"Enter Book ID TO add:";
+	cin >>id;
+	L.add_book(id);
+	cout <<"Enter Book ID TO borrow:";
+	cin >>id;
+	L.Borrow(id);
+	cout <<"Enter Book ID TO return :";
+	cin >>id;
+	L.return_book(id);
 	L.display_all();
 	
 }
