@@ -8,7 +8,8 @@ class Square{
 	
 	public:
 		Square(){
-			
+			sideLength=0.0;
+			area = 0.0;
 		}
 		Square(float side){
 			sideLength = side;
