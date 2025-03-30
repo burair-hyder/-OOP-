@@ -37,7 +37,7 @@ class Ghost{
 		friend  ostream& operator <<(ostream& out,const Ghost &g);
 };
  ostream& operator <<( ostream& out,const Ghost &g){
-			out << "Level: "<<g.level<<"Name of Worker: "<<g.nameworker<<endl;
+			out << "Level: "<<g.level<<"  Name of Worker: "<<g.nameworker<<endl;
 		
 			return out;
 }
@@ -98,7 +98,7 @@ class Poltergeists:virtual public Ghost{
 	}
 	
 	void Haunting(){
-		cout <<"Moving Objects!!"<<endl;
+		cout <<"Ghost Moving Objects!!"<<endl;
 		
 	}	
 };
@@ -108,7 +108,7 @@ class Banshees:virtual public Ghost{
 	}
 	
 	void Haunting(){
-		cout <<"SCREEAMS LOUDDLY  !!"<<endl;
+		cout <<"Ghost SCREEAMS LOUDDLY  !!"<<endl;
 		
 	}	
 };
@@ -119,7 +119,7 @@ class ShadowGhosts:virtual public Ghost{
 	}
 	
 	void Haunting(){
-		cout <<"Whispeeeeeeers Creepily  !!"<<endl;
+		cout <<"Ghost Whispeeeeeeers Creepily  !!"<<endl;
 		
 	}	
 };
@@ -130,7 +130,7 @@ class ShadowPoltergeist: public ShadowGhosts, public Poltergeists{
 		}
 		
 	void Haunting(){
-		cout <<"Moving Objects!! && Whispeeeeeeers Creepily"<<endl;
+		cout <<"Ghost Moving Objects!! && Whispeeeeeeers Creepily"<<endl;
 	}
 
 };
@@ -252,13 +252,17 @@ int main(){
 
 void Visit( HauntedHouse &h, Visitor arr[],int size){
 	cout<<"Visitor are Entering House "<<h.getname()<<endl;
+	cout <<endl;
 	for (int i=0;i<size;i++){
 		for (int j=0;j<h.numghost;j++){
 			int temp =h.ghost[j]->getLevel();
 			string reaction;
 			reaction =arr[i].reactTOghost(temp);
-			cout <<  arr[i].name +" "+ reaction+"from Ghost "+ h.ghost[j]->getname()<<endl;
+			h.ghost[j]->Haunting();
+			cout <<  arr[i].name +" "+ reaction+" from Ghost "+ h.ghost[j]->getname()<<endl;
+			cout<<endl;
 			
 		}
+		cout <<endl;
 	}
 }
