@@ -4,16 +4,27 @@
 using namespace std;
 
 class Book{
-	private:
+		public:
 	string title;
 		string ISBN;
 		string author;
 		
-	public:
+
 		Book(string titlep,string ISBNp,string authorp);
+		Book();
 		
 		string getTitle();
 	string getAuthor();
 		string getISBN();
+};
+class Library{
+	private:
+		Book arr[10];
+		int x;
+	public:
+		Library();
+		void addbook();
+		void removebook();
+		void searchbook();
 };
 #endif
